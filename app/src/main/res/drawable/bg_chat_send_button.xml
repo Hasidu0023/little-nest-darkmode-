@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- This color should typically be your app's primary or accent color -->
+    <solid android:color="@color/kindiedays_blue_light" />
+
+    <!-- Optional: Add a subtle shadow if desired, though often done via elevation in the view -->
+    <!-- <padding android:top="8dp" android:right="8dp" android:bottom="8dp" android:left="8dp"/> -->
+</shape>

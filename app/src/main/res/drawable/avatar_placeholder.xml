@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<vector xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:width="64dp"-->
+<!--    android:height="64dp"-->
+<!--    android:viewportWidth="24"-->
+<!--    android:viewportHeight="24">-->
+<!--    &lt;!&ndash; Defines the head (circle) and shoulders.-->
+<!--         This path is a standard Material Design avatar icon, filled with light grey. &ndash;&gt;-->
+<!--    <path-->
+<!--        android:fillColor="#CCCCCC"-->
+<!--        android:pathData="M12,12a5,5 0,1 0,0 -10a5,5 0,0 0,0 10zM4,20c0,-4 8,-6 8,-6s8,2 8,6v2H4v-2z" />-->
+<!--</vector>-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Outer light grey circle -->
+    <path
+        android:fillColor="#D3D3D3"
+        android:pathData="M12,2a10,10 0,1 0,0 20a10,10 0,0 0,0 -20z" />
+
+    <!-- Person silhouette (head + shoulders) old color "#4A4A4A" -->
+    <path
+        android:fillColor="#4A4A4A"
+        android:pathData="M12,6a3,3 0,1 0,0 6a3,3 0,0 0,0 -6zM6,18c0,-2.5 4,-4 6,-4s6,1.5 6,4v1H6v-1z" />
+
+</vector>

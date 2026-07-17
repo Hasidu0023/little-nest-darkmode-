@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8"
+    android:padding="16dp"
+    tools:context=".ui.settings.SettingsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="40dp">
+
+        <!-- *************** GENERAL SECTION *************** -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GENERAL"
+            android:textColor="#888888"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/rounded_card_background"
+            android:layout_marginBottom="24dp">
+
+            <!-- Placeholder for Logo/Image -->
+            <ImageView
+                android:id="@+id/nursery_logo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_app_logo_placeholder"
+                android:contentDescription="General Info Image"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Address and Email Block -->
+            <TextView
+                android:id="@+id/nursery_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Little Nest (Default)"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp"/>
+            <TextView
+                android:id="@+id/nursery_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capitol TwinPeaks,\nNo.24,Staple Street, Colombo 02"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp"/>
+
+            <TextView
+                android:id="@+id/nursery_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="info@littlenestapp.com"
+                android:gravity="center_horizontal"
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- *************** ABOUT SECTION *************** -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ABOUT"
+            android:textColor="#888888"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/rounded_card_background"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/nursery_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                android:gravity="left"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp"/>
+        </LinearLayout>
+
+
+
+
+        <!-- *************** SETTINGS SECTION *************** -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SETTINGS"
+            android:textColor="#888888"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_card_background"
+            android:layout_marginBottom="24dp">
+
+            <!-- 1. Notifications Toggle -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Notifications"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black" />
+
+                <!-- The Switch button -->
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:thumbTint="@color/white"
+                    android:trackTint="@color/kindiedays_blue_dark"
+                    android:layout_marginEnd="8dp" />
+            </LinearLayout>
+
+            <!-- Divider Line -->
+            <View style="@style/DividerLine" />
+
+            <!-- 2. Language Selection -->
+            <LinearLayout
+                android:id="@+id/layoutLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="12dp"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Language"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black" />
+
+                <!-- Current Language and Arrow -->
+                <TextView
+                    android:id="@+id/textLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:textColor="#888888"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp" />
+
+<!--                <ImageView-->
+<!--                    android:layout_width="16dp"-->
+<!--                    android:layout_height="16dp"-->
+<!--                    android:src="@drawable/ic_arrow_right"-->
+<!--                    app:tint="#888888"-->
+<!--                    android:contentDescription="Next" />-->
+            </LinearLayout>
+
+
+<!--            Update Nursery-->
+            <Button
+                android:id="@+id/btnSaveNursery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Update Nursery"
+                android:paddingVertical="12dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/kindiedays_blue_dark"
+                android:textColor="@android:color/white"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+
+        <!-- *************** LOGOUT SECTION *************** -->
+        <LinearLayout
+            android:id="@+id/layoutLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:backgroundTint="#FFFFFF"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Logout"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#E53935" /> <!-- Red for Logout text -->
+
+            <!-- Logout Icon -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_logout_arrow"
+                app:tint="#E53935"
+                android:contentDescription="Logout" />
+        </LinearLayout>
+
+        <!-- Version Number -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="v.2.0.28"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginTop="32dp" />
+
+    </LinearLayout>
+</ScrollView>

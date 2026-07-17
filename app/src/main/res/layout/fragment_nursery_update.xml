@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_add_nursery.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <!-- Nursery Image -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nursery Logo"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"/>
+        <ImageView
+            android:id="@+id/ivNurseryImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_app_logo_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext_background"/>
+        <Button
+            android:id="@+id/btnSelectImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Logo"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:textColor="@android:color/white"/>
+
+        <!-- Nursery Name -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Nursery Name" />
+            <EditText
+                android:id="@+id/etNurseryName"
+                style="@style/ProfileItemValue"
+                android:gravity="start|center_vertical"/>
+        </LinearLayout>
+
+        <!-- Nursery Description -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/etNurseryDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start"
+            android:paddingVertical="8dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Nursery Email -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Email" />
+            <EditText
+                android:id="@+id/etNurseryEmail"
+                style="@style/ProfileItemValue"
+                android:inputType="textEmailAddress"
+                android:gravity="start|center_vertical"/>
+        </LinearLayout>
+
+        <!-- Nursery Address -->
+        <LinearLayout
+            style="@style/ProfileItemContainer"
+            android:layout_marginTop="16dp">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Address" />
+            <EditText
+                android:id="@+id/etNurseryAddress"
+                style="@style/ProfileItemValue"
+                android:gravity="start|center_vertical"/>
+        </LinearLayout>
+
+        <!-- Nursery Language -->
+        <LinearLayout
+            style="@style/ProfileItemContainer"
+            android:layout_marginTop="16dp">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Language" />
+<!--            <EditText-->
+<!--                android:id="@+id/etNurseryLanguage"-->
+<!--                style="@style/ProfileItemValue"-->
+<!--                android:gravity="start|center_vertical"/>-->
+            <Spinner
+                android:id="@+id/spLanguage"
+                style="@style/ProfileItemValue"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSaveNursery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update Nursery"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- DESCRIPTION -->
+        <TextView
+            android:text="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="4"
+            android:gravity="top|start"
+            android:padding="10dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:layout_marginBottom="16dp"
+            android:hint="Write something about today..." />
+
+
+
+        <!-- IMAGES -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Images" />
+
+            <Button
+                android:id="@+id/btnPickImages"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Images"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textImageCount"
+            android:text="No images selected"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerImages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <!-- GROUP -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Group" />
+
+            <Button
+                android:id="@+id/btnSelectGroup"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Groups"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+
+
+        <!-- TAG STUDENTS -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Tag Students" />
+
+            <Button
+                android:id="@+id/btnTagStudents"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Students"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp" />
+        </LinearLayout>
+
+
+
+        <!-- CURRICULUM -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Curriculum" />
+
+            <Button
+                android:id="@+id/btnSelectCurriculum"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Curriculum"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+        <!-- SUBTOPIC -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Sub Topic" />
+
+            <Button
+                android:id="@+id/btnSelectSubTopic"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Sub Topic"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+        <!-- ACTIVITIES -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Activities" />
+
+            <Button
+                android:id="@+id/btnSelectActivities"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Select Activities"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:textColor="@android:color/white"
+                android:paddingVertical="8dp"/>
+        </LinearLayout>
+
+
+        <!-- SAVE BUTTON -->
+        <Button
+            android:id="@+id/btnPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Journal"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

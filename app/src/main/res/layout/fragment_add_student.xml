@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    android:background="@android:color/white"
+    tools:context=".ui.student.AddStudentFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- PROFILE HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/avatar_placeholder"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <EditText
+                android:id="@+id/etFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Student Full Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@null"
+                android:inputType="textPersonName|textCapWords" />
+        </LinearLayout>
+
+
+        <!-- ACCOUNT DETAILS -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ACCOUNT DETAILS"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#555555"
+            android:paddingBottom="8dp" />
+
+        <!-- Username -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Username" />
+            <EditText
+                android:id="@+id/etUsername"
+                style="@style/ProfileItemValue"
+                android:hint="Enter username"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Password -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Password" />
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/ProfileItemValue"
+                android:hint="Enter password"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+
+        <!-- PERSONAL DETAILS -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PERSONAL DETAILS"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#555555"
+            android:paddingBottom="8dp"
+            android:paddingTop="20dp"/>
+
+        <!-- Group -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Group Name" />
+
+            <Spinner
+                android:id="@+id/spinnerGroup"
+                style="@style/ProfileItemValue"
+                android:layout_gravity="end"
+                android:gravity="end" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Gender" />
+            <Spinner
+                android:id="@+id/spinnerGender"
+                style="@style/ProfileItemValue"
+                android:hint="Enter nickname"
+                android:inputType="textPersonName"
+                android:layout_gravity="end"
+                android:gravity="end"/>
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Nickname -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Nickname" />
+            <EditText
+                android:id="@+id/etNickname"
+                style="@style/ProfileItemValue"
+                android:hint="Enter nickname"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Date of Birth (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Date of Birth" />
+            <EditText
+                android:id="@+id/etDateOfBirth"
+                style="@style/ProfileItemValue"
+                android:hint="dd-MM-yyyy"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Dropoff Time (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Dropoff Time" />
+            <EditText
+                android:id="@+id/etDropOffTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Pickup Time (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Pickup Time" />
+            <EditText
+                android:id="@+id/etPickupTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Address -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Address" />
+            <EditText
+                android:id="@+id/etAddress"
+                style="@style/ProfileItemValue"
+                android:hint="Enter address"
+                android:inputType="textPostalAddress" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- City -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="City" />
+            <EditText
+                android:id="@+id/etCity"
+                style="@style/ProfileItemValue"
+                android:hint="Enter city"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Allergies -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Allergies" />
+            <EditText
+                android:id="@+id/etAllergies"
+                style="@style/ProfileItemValue"
+                android:hint="Enter allergies"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Language -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Native Language" />
+            <EditText
+                android:id="@+id/etLanguage"
+                style="@style/ProfileItemValue"
+                android:hint="Enter language"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Photo Consent -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Photo Consent"
+                android:textSize="16sp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/cbPhotoConsent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Comment (Uses MultiLine Input) -->
+        <!-- Note: This is an exception, keeping it full-width for multi-line input -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/etComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter comment or special instructions"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start"
+            android:paddingVertical="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:paddingLeft="10dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Student"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:layout_marginTop="24dp"
+            android:paddingVertical="12dp" />
+
+    </LinearLayout>
+</ScrollView>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:padding="16dp"-->
+<!--    android:background="#F8F8F8">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+
+<!--        &lt;!&ndash; ACCOUNT DETAILS &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="ACCOUNT DETAILS"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#888888"-->
+<!--            android:paddingTop="16dp"-->
+<!--            android:paddingBottom="8dp" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/usernameLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Username *"-->
+<!--            app:errorEnabled="true"-->
+<!--            app:boxBackgroundMode="filled"-->
+<!--            app:boxBackgroundColor="@color/white">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etUsername"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/passwordLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Password *"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etPassword"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="textPassword" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/genderDropdownLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:hint="Gender"-->
+<!--            android:layout_marginBottom="8dp">-->
+
+<!--            <com.google.android.material.textfield.MaterialAutoCompleteTextView-->
+<!--                android:id="@+id/spinnerGender"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:padding="8dp"-->
+<!--                android:inputType="none"-->
+<!--                android:focusable="false"-->
+<!--                android:clickable="true"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--        &lt;!&ndash; STUDENT INFO &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="STUDENT INFO"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="#888888"-->
+<!--            android:paddingTop="16dp"-->
+<!--            android:paddingBottom="8dp" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/fullnameLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etFullName"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Full Name *" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etNickname"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="Nickname" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/DateOfBirthLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Date of Birth *"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etDateOfBirth"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etGroup"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="Select a Group"-->
+<!--            android:focusable="false" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etDropOffTime"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="Drop Off Time (HH:mm)" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etPickupTime"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="Pickup Time (HH:mm)" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:paddingTop="8dp"-->
+<!--            android:paddingBottom="8dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Photo Consent"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingLeft="13dp"/>-->
+
+<!--            <com.google.android.material.switchmaterial.SwitchMaterial-->
+<!--                android:id="@+id/cbPhotoConsent"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="48dp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/AddressLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Address *"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etAddress"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/etCity"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="City" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/NativeLanguageLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Native Language *"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etLanguage"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/AllergiesLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Allergies *"-->
+<!--            app:errorEnabled="true">-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/etAllergies"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/etComment"-->
+<!--            style="@style/AddStudentText"-->
+<!--            android:hint="Comment" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnSubmit"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="Register Student"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:backgroundTint="@color/purple_500" />-->
+<!--    </LinearLayout>-->
+<!--</ScrollView>-->

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Use the custom light blue/gray color -->
+    <solid android:color="@color/color_tab_background" />
+    <!-- Rounded corners for the entire tab block -->
+    <corners android:radius="16dp" />
+</shape>

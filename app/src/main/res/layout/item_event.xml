@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="12dp"
+    android:background="?attr/selectableItemBackground"
+    android:descendantFocusability="afterDescendants"> <!-- ✅ CHANGED -->
+
+    <!-- Date -->
+    <TextView
+        android:id="@+id/textDateSeparator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05-05-2020"
+        android:layout_marginBottom="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iconCalendar"/>
+
+    <!-- Calendar Icon -->
+    <ImageView
+        android:id="@+id/iconCalendar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_calendar_blue"
+        app:tint="@color/kindiedays_blue_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDateSeparator"/>
+
+    <!-- Event Name -->
+    <TextView
+        android:id="@+id/textEventName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Trip to the beach"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iconCalendar"
+        app:layout_constraintEnd_toStartOf="@id/layoutActions"
+        app:layout_constraintTop_toTopOf="@id/iconCalendar" />
+
+    <!-- ✅ NEW: ACTION BUTTON CONTAINER (replaces ImageViews) -->
+    <LinearLayout
+        android:id="@+id/layoutActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="@id/textEventName"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ✅ CHANGED: ImageButton instead of ImageView -->
+        <ImageButton
+            android:id="@+id/iconEdit"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_edit"
+            android:contentDescription="Edit Event"
+            app:tint="@color/kindiedays_blue_dark" />
+
+        <!-- ✅ CHANGED: ImageButton instead of ImageView -->
+        <ImageButton
+            android:id="@+id/iconDelete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="Delete Event"
+            app:tint="@android:color/holo_red_dark" />
+    </LinearLayout>
+
+    <!-- Time Icon -->
+    <ImageView
+        android:id="@+id/iconTime"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_clock_black"
+        app:tint="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="@id/textEventName"
+        app:layout_constraintTop_toBottomOf="@id/textEventName"/>
+
+    <!-- Event Time -->
+    <TextView
+        android:id="@+id/textEventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="12:30"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/iconTime"
+        app:layout_constraintTop_toTopOf="@id/iconTime"
+        app:layout_constraintBottom_toBottomOf="@id/iconTime"/>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/iconTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:paddingHorizontal="16dp"-->
+<!--    android:paddingTop="12dp"-->
+<!--    android:background="?attr/selectableItemBackground">-->
+
+<!--    &lt;!&ndash; Date (Used as a separator text above the first item in a group) &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/textDateSeparator"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="05-05-2020"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:textSize="14sp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/iconCalendar"/>-->
+
+<!--    &lt;!&ndash; Calendar Icon &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iconCalendar"-->
+<!--        android:layout_width="24dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:src="@drawable/ic_calendar_blue"-->
+<!--        app:tint="@color/kindiedays_blue_dark"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textDateSeparator"/>-->
+
+<!--    &lt;!&ndash; Event Name (Title) &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/textEventName"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:text="Trip to the beach"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@id/iconCalendar"-->
+<!--        app:layout_constraintTop_toTopOf="@id/iconCalendar" />-->
+
+
+
+
+<!--    &lt;!&ndash; EDIT ICON &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iconEdit"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:contentDescription="Edit Event"-->
+<!--        android:src="@drawable/ic_edit"-->
+<!--        app:tint="@color/kindiedays_blue_dark"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        app:layout_constraintTop_toTopOf="@id/textEventName"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/iconDelete" />-->
+
+<!--    &lt;!&ndash; DELETE ICON &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iconDelete"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:contentDescription="Delete Event"-->
+<!--        android:src="@drawable/ic_delete"-->
+<!--        app:tint="@android:color/holo_red_dark"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true"-->
+<!--        app:layout_constraintTop_toTopOf="@id/textEventName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+
+
+
+<!--    &lt;!&ndash; Time Icon &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/iconTime"-->
+<!--        android:layout_width="16dp"-->
+<!--        android:layout_height="16dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:src="@drawable/ic_clock_black"-->
+<!--        app:tint="@android:color/darker_gray"-->
+<!--        app:layout_constraintStart_toStartOf="@id/textEventName"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/textEventName"/>-->
+
+<!--    &lt;!&ndash; Event Time &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/textEventTime"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:text="12:30"-->
+<!--        android:textColor="@android:color/darker_gray"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toEndOf="@id/iconTime"-->
+<!--        app:layout_constraintTop_toTopOf="@id/iconTime"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/iconTime"/>-->
+
+<!--    &lt;!&ndash; Participant Badge Container (P, A, K) &ndash;&gt;-->
+<!--&lt;!&ndash;    <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/layoutParticipants"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toEndOf="@id/textEventTime"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toTopOf="@id/iconTime"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintBottom_toBottomOf="@id/iconTime">&ndash;&gt;-->
+
+<!--        &lt;!&ndash; Participant Badge Placeholder &ndash;&gt;-->
+<!--&lt;!&ndash;        <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/textParticipantBadge"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:background="@drawable/rounded_participant_badge"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:text="P"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textColor="@android:color/darker_gray"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textSize="10sp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:textStyle="bold"/>&ndash;&gt;-->
+<!--&lt;!&ndash;    </LinearLayout>&ndash;&gt;-->
+
+
+
+<!--    &lt;!&ndash; Separator Line &ndash;&gt;-->
+<!--    <View-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:background="@android:color/darker_gray"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/iconTime"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

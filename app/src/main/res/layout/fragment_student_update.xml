@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    android:background="@android:color/white"
+    tools:context=".ui.family.UpdateStudentFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header Section: Profile Picture and Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <!-- Profile Picture -->
+            <!-- Note: You need to define @drawable/avatar_placeholder or use a standard icon -->
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/avatar_placeholder"
+                android:scaleType="centerCrop"
+                android:contentDescription="Profile Picture"
+                android:background="@drawable/circle_background"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!-- Full Name Display (can be an EditText if name is editable) -->
+                <EditText
+                    android:id="@+id/editFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Student Full Name"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:inputType="textPersonName|textCapWords" />
+
+                <!-- Upload Button below the name -->
+                <Button
+                    android:id="@+id/btnUploadPicture"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:paddingStart="3dp"
+                    android:paddingEnd="3dp"
+                    android:text="Change Picture"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/kindiedays_blue_dark"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Dynamic Field Layouts (Label and Value side-by-side) -->
+
+        <!-- Nickname -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Nickname" />
+            <EditText
+                android:id="@+id/editNickname"
+                style="@style/ProfileItemValue"
+                android:hint="Enter nickname"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Date of Birth (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Date of Birth" />
+            <EditText
+                android:id="@+id/editDateOfBirth"
+                style="@style/ProfileItemValue"
+                android:hint="dd-MM-yyyy"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Photo Consent (Checkbox) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer"
+            android:minHeight="48dp"
+            android:gravity="center_vertical">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Photo Consent" />
+            <CheckBox
+                android:id="@+id/checkboxPhotoConsent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:minWidth="0dp"
+                android:padding="0dp"/>
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Native Language -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Native Language" />
+            <EditText
+                android:id="@+id/editNativeLanguage"
+                style="@style/ProfileItemValue"
+                android:hint="Enter language"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Dropoff Time (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Dropoff Time" />
+            <EditText
+                android:id="@+id/editDropOffTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Pickup Time (Non-editable for selection) -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Pickup Time" />
+            <EditText
+                android:id="@+id/editPickupTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm"
+                android:focusable="false"
+                android:clickable="true" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Address -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Address" />
+            <EditText
+                android:id="@+id/editAddress"
+                style="@style/ProfileItemValue"
+                android:hint="Enter address"
+                android:inputType="textPostalAddress" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- City -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="City" />
+            <EditText
+                android:id="@+id/editCity"
+                style="@style/ProfileItemValue"
+                android:hint="Enter city"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Allergies -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Allergies" />
+            <EditText
+                android:id="@+id/editAllergies"
+                style="@style/ProfileItemValue"
+                android:hint="Enter allergies"
+                android:inputType="text" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Comment (Uses MultiLine Input) -->
+        <!-- Note: This is an exception, keeping it full-width for multi-line input -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/editComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter comment or special instructions"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start"
+            android:paddingVertical="8dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/btnSaveStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Changes"
+            android:paddingVertical="12dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

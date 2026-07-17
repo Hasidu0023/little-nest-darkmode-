@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Background rounded square -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M4,3h16a2,2 0,0 1,2 2v14a2,2 0,0 1,-2 2H4a2,2 0,0 1,-2 -2V5a2,2 0,0 1,2 -2z" />
+
+    <!-- Mountain -->
+    <path
+        android:fillColor="#B0B0B0"
+        android:pathData="M4,17l4.5,-5 3.5,4.5 2.5,-3 5.5,6H4z" />
+
+    <!-- Sun / photo dot -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M16,7a1.5,1.5 0,1 0,0 3a1.5,1.5 0,0 0,0 -3z" />
+
+</vector>

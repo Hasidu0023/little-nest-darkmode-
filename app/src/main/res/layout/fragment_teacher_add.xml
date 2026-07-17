@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="20dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/avatar_placeholder"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_background" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teacher Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="@null"
+                android:layout_marginStart="16dp"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <!-- Username -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Username" />
+            <EditText
+                android:id="@+id/teacherUsername"
+                style="@style/ProfileItemValue"
+                android:hint="Enter Username"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+
+        <!-- Password -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Password" />
+            <EditText
+                android:id="@+id/teacherPassword"
+                style="@style/ProfileItemValue"
+                android:hint="Enter password"
+                android:inputType="textPassword" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Gender -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Gender" />
+            <Spinner
+                android:id="@+id/spinnerGender"
+                style="@style/ProfileItemValue" />
+        </LinearLayout>
+        <View style="@style/DividerLine" />
+
+        <!-- Group -->
+<!--        <LinearLayout style="@style/ProfileItemContainer">-->
+<!--            <TextView style="@style/ProfileItemLabel"-->
+<!--                android:text="Group" />-->
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerGroup"-->
+<!--                style="@style/ProfileItemValue" />-->
+<!--        </LinearLayout>-->
+<!--        <View style="@style/DividerLine" />-->
+
+
+        <!-- Groups -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Groups" />
+<!--            <Button-->
+<!--                android:id="@+id/btnSelectGroups"-->
+<!--                style="@style/ProfileItemValue"-->
+<!--                android:text="Select Groups" />-->
+            <Button
+                android:id="@+id/btnSelectGroups"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="36dp"
+                android:text="Select Groups"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:paddingVertical="9dp"/>
+        </LinearLayout>
+
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Teacher"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:layout_marginTop="24dp"
+            android:paddingVertical="12dp" />
+    </LinearLayout>
+</ScrollView>

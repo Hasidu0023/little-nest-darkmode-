@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This drawable creates a solid, rounded blue rectangle for the active tab indicator. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Assuming you have defined @color/kindiedays_blue_dark in your colors.xml -->
+    <solid android:color="@color/kindiedays_blue_dark" />
+
+    <!-- Adjusted corner radius for a slightly tighter fit within the parent TabLayout background -->
+    <corners android:radius="6dp" />
+</shape>

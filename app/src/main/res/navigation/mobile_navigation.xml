@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.littlenest.nursery.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.littlenest.nursery.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_students"
+        android:name="com.littlenest.nursery.ui.student.StudentsFragment"
+        android:label="Students"
+        tools:layout="@layout/fragment_students">
+
+        <!-- Action to Student Detail Fragment -->
+        <action
+            android:id="@+id/action_studentsFragment_to_studentDetailFragment"
+            app:destination="@id/studentDetailFragment" />
+
+        <!-- Action to Add Student Fragment -->
+        <action
+            android:id="@+id/action_studentsFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="com.littlenest.nursery.ui.student.StudentDetailFragment"
+        android:label="Student Detail"
+        tools:layout="@layout/fragment_student_detail">
+
+        <argument
+            android:name="student"
+            app:argType="com.littlenest.nursery.ui.student.Student"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.littlenest.nursery.AddStudentFragment"
+        android:label="Student Registration" />
+
+    <!-- Teacher List Fragment-->
+    <fragment
+        android:id="@+id/nav_taechers"
+        android:name="com.littlenest.nursery.ui.teacher.TeacherListFragment"
+        android:label="Teachers"
+        tools:layout="@layout/fragment_teacher_list">
+
+        <!-- Action to Teachers Detail Fragment -->
+        <action
+            android:id="@+id/action_teacherListFragment_to_teacherDetailFragment"
+            app:destination="@id/teacherDetailFragment" />
+    </fragment>
+
+    <!-- Teacher Detail Fragment -->
+    <fragment
+        android:id="@+id/teacherDetailFragment"
+        android:name="com.littlenest.nursery.ui.teacher.TeacherDetailFragment"
+        android:label="Teacher Detail">
+        <argument
+            android:name="teacher"
+            app:argType="com.littlenest.nursery.ui.teacher.Teacher" />
+    </fragment>
+
+
+    <!-- Group List Fragment-->
+    <fragment
+        android:id="@+id/nav_groups"
+        android:name="com.littlenest.nursery.ui.group.GroupListFragment"
+        android:label="Groups"
+        tools:layout="@layout/fragment_group_list">
+
+        <!-- Action to Teachers Detail Fragment -->
+<!--        <action-->
+<!--            android:id="@+id/action_teacherListFragment_to_teacherDetailFragment"-->
+<!--            app:destination="@id/teacherDetailFragment" />-->
+    </fragment>
+</navigation>

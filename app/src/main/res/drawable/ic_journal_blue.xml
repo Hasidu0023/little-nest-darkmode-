@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Post Card -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#2196F3"
+        android:strokeWidth="1.5"
+        android:pathData="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2H4a2 2 0 0 1 -2 -2V5a2 2 0 0 1 2 -2z"/>
+
+    <!-- Title Line -->
+    <path
+        android:strokeColor="#2196F3"
+        android:strokeWidth="1.4"
+        android:pathData="M7 8h10"/>
+
+    <!-- Content Lines -->
+    <path
+        android:strokeColor="#2196F3"
+        android:strokeWidth="1.2"
+        android:pathData="M7 11h10"/>
+    <path
+        android:strokeColor="#2196F3"
+        android:strokeWidth="1.2"
+        android:pathData="M7 14h7"/>
+
+    <!-- Image Placeholder -->
+    <path
+        android:fillColor="#2196F3"
+        android:pathData="M7 17h3v-3H7z"/>
+</vector>

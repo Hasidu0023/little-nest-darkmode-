@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_family_journal"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Journal" />
+
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Messages" />
+
+<!--        <item-->
+<!--            android:id="@+id/albumFragment"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="Album" />-->
+        <item
+            android:id="@+id/nav_family_events"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Events" />
+        <item
+            android:id="@+id/nav_family_attendance"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Attendance" />
+        <item
+            android:id="@+id/nav_family_About"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Student Profile" />
+        <item
+            android:id="@+id/nav_family_Settings"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Nursery Profile" />
+    </group>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="Logout" />
+</menu>

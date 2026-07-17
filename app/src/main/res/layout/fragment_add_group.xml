@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- fragment_add_group.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical">
+
+    <!-- Group Name -->
+    <LinearLayout
+        style="@style/ProfileItemContainer">
+        <TextView
+            style="@style/ProfileItemLabel"
+            android:text="Group Name" />
+        <EditText
+            android:id="@+id/etGroupName"
+            style="@style/ProfileItemValue"
+            android:gravity="start|center_vertical"/>
+    </LinearLayout>
+
+    <!-- Group Description -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group Description"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp" />
+    <EditText
+        android:id="@+id/etGroupDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top|start"
+        android:paddingVertical="8dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btnSaveGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Group"
+        android:paddingVertical="12dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/kindiedays_blue_dark"
+        android:textColor="@android:color/white" />
+</LinearLayout>

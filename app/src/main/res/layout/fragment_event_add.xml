@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- EVENT NAME -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Event Name" />
+
+            <EditText
+                android:id="@+id/etEventName"
+                style="@style/ProfileItemValue"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+
+        <!-- DESCRIPTION -->
+        <TextView
+            android:text="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etEventDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            android:gravity="top|start"
+            android:paddingVertical="8dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/rounded_edittext_background"
+            android:layout_marginBottom="24dp" />
+
+        <!-- LOCATION -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Location" />
+
+            <EditText
+                android:id="@+id/etEventLocation"
+                style="@style/ProfileItemValue"
+                android:gravity="start|center_vertical" />
+        </LinearLayout>
+
+        <!-- DATE -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Event Date" />
+
+            <EditText
+                android:id="@+id/etEventDate"
+                style="@style/ProfileItemValue"
+                android:hint="YYYY-MM-DD"
+                android:gravity="start|center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"
+                android:inputType="none"/>
+        </LinearLayout>
+
+        <!-- START TIME -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Starts" />
+
+            <EditText
+                android:id="@+id/etStartTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm:ss"
+                android:gravity="start|center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"
+                android:inputType="none"/>
+        </LinearLayout>
+
+        <!-- END TIME -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Ends" />
+
+            <EditText
+                android:id="@+id/etEndTime"
+                style="@style/ProfileItemValue"
+                android:hint="HH:mm:ss"
+                android:gravity="start|center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"
+                android:inputType="none"/>
+        </LinearLayout>
+
+        <!-- REPEATING -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Repeating" />
+
+            <Switch
+                android:id="@+id/switchRepeating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <!-- Repeat end DATE -->
+        <LinearLayout
+            style="@style/ProfileItemContainer">
+
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Repeating Ends" />
+
+            <EditText
+                android:id="@+id/etRepeatingEndsDate"
+                style="@style/ProfileItemValue"
+                android:hint="YYYY-MM-DD"
+                android:gravity="start|center_vertical"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"
+                android:inputType="none"/>
+        </LinearLayout>
+
+        <!-- Groups -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Groups" />
+            <Button
+                android:id="@+id/btnSelectGroups"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:minHeight="36dp"
+                android:text="Select Groups"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/kindiedays_blue_light"
+                android:paddingVertical="9dp"/>
+        </LinearLayout>
+
+
+        <!-- SAVE BUTTON -->
+        <Button
+            android:id="@+id/btnSaveEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Event"
+            android:paddingVertical="12dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/kindiedays_blue_dark"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

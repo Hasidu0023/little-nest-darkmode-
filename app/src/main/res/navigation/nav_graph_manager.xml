@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_manager"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_messages">
+
+    <fragment
+        android:id="@+id/nav_manager_dashboard"
+        android:name="com.littlenest.nursery.ui.home.HomeFragment"
+        android:label="Admin Dashboard"
+        tools:layout="@layout/fragment_home" />
+
+
+    <!--MESSAGE -START -->
+    <!--chat list-->
+    <fragment
+        android:id="@+id/nav_messages"
+        android:name="com.littlenest.nursery.ui.chat.ChatListFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/action_chatListFragment_to_chatFragment"
+            app:destination="@id/chatFragment"/>
+        <action
+            android:id="@+id/action_chatListFragment_to_userListFragment"
+            app:destination="@id/userListFragment"/>
+        <action
+            android:id="@+id/action_chatListFragment_to_groupChatFragment"
+            app:destination="@id/groupChatFragment" />
+    </fragment>
+
+    <!--Private Chat Interface-->
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.littlenest.nursery.ui.chat.ChatFragment"
+        android:label="Chat">
+        <argument
+            android:name="chat"
+            app:argType="com.littlenest.nursery.ui.chat.ChatListItem" />
+    </fragment>
+
+    <!--send to : user list interface-->
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.littlenest.nursery.ui.chat.UserListFragment"
+        android:label="Send to"
+        tools:layout="@layout/fragment_user_list">
+
+        <action
+            android:id="@+id/action_userList_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <!--group chat Interface (use the same private chat layout-->
+    <fragment
+        android:id="@+id/groupChatFragment"
+        android:name="com.littlenest.nursery.ui.chat.GroupChatFragment"
+        android:label="Group Chat"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="groupId"
+            app:argType="integer" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
+    </fragment>
+    <!--MESSAGE -END -->
+
+
+
+
+
+    <!--GROUP -START -->
+    <fragment
+        android:id="@+id/groupListFragment"
+        android:name="com.littlenest.nursery.ui.group.GroupListFragment"
+        android:label="Groups"
+        tools:layout="@layout/fragment_group_list">
+
+        <action
+            android:id="@+id/action_groupListFragment_to_addGroupFragment"
+            app:destination="@id/addGroupFragment" />
+        <action
+            android:id="@+id/action_groupListFragment_to_editGroupFragment"
+            app:destination="@id/editGroupFragment" />
+
+<!--        <action-->
+<!--            android:id="@+id/action_groupListFragment_to_groupStudentListFragment"-->
+<!--            app:destination="@id/groupStudentListFragment" />-->
+
+        <action
+            android:id="@+id/action_groupListFragment_to_studentFragment"
+            app:destination="@id/studentFragment" />
+    </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/groupStudentListFragment"-->
+<!--        android:name="com.example.nurseryapp.ui.group.GroupStudentListFragment"-->
+<!--        android:label="Students">-->
+<!--        <argument-->
+<!--            android:name="groupId"-->
+<!--            app:argType="integer" />-->
+<!--        <argument-->
+<!--            android:name="groupName"-->
+<!--            app:argType="string" />-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_groupStudentListFragment_to_studentDetailFragment"-->
+<!--            app:destination="@id/studentDetailFragment" />-->
+<!--    </fragment>-->
+
+
+    <fragment
+        android:id="@+id/addGroupFragment"
+        android:name="com.littlenest.nursery.ui.group.AddGroupFragment"
+        android:label="Create Group"
+        tools:layout="@layout/fragment_add_group" />
+
+    <fragment
+        android:id="@+id/editGroupFragment"
+        android:name="com.littlenest.nursery.ui.group.EditGroupFragment"
+        android:label="Update Group">
+        <argument
+            android:name="groupId"
+            app:argType="integer" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
+        <argument
+            android:name="groupDescription"
+            app:argType="string" />
+    </fragment>
+    <!--GROUP -END -->
+
+
+
+
+    <!--STUDENT -START -->
+    <fragment
+        android:id="@+id/studentFragment"
+        android:name="com.littlenest.nursery.ui.student.StudentsFragment"
+        android:label="Students"
+        tools:layout="@layout/fragment_students">
+
+        <!-- OPTIONAL -->
+        <argument
+            android:name="groupId"
+            app:argType="integer" />
+
+        <argument
+            android:name="groupName"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_studentsFragment_to_studentDetailFragment"
+            app:destination="@id/studentDetailFragment" />
+        <action
+            android:id="@+id/action_studentsFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+        <action
+            android:id="@+id/action_studentsFragment_to_updateStudentFragment"
+            app:destination="@id/updateStudentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="com.littlenest.nursery.ui.student.StudentDetailFragment"
+        android:label="Student Information"
+        tools:layout="@layout/fragment_student_detail">
+        <argument
+            android:name="student"
+            app:argType="com.littlenest.nursery.ui.student.Student" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.littlenest.nursery.ui.student.AddStudentFragment"
+        android:label="Add Student"
+        tools:layout="@layout/fragment_add_student">
+
+        <argument
+            android:name="student"
+            app:argType="com.littlenest.nursery.ui.student.Student"
+            app:nullable="true" />
+    </fragment>
+
+    <!--use same fragment for add and update-->
+    <fragment
+        android:id="@+id/updateStudentFragment"
+        android:name="com.littlenest.nursery.ui.student.AddStudentFragment"
+        android:label="Update Student"
+        tools:layout="@layout/fragment_add_student">
+        <argument
+            android:name="student"
+            app:argType="com.littlenest.nursery.ui.student.Student"
+            app:nullable="false" />
+    </fragment>
+    <!--STUDENT -END -->
+
+
+
+
+    <!--TEACHER -START -->
+    <fragment
+        android:id="@+id/teacherListFragment"
+        android:name="com.littlenest.nursery.ui.teacher.TeacherListFragment"
+        android:label="Educator"
+        tools:layout="@layout/fragment_teacher_list">
+
+        <action
+            android:id="@+id/action_teacherListFragment_to_teacherDetailFragment"
+            app:destination="@id/teacherDetailFragment" />
+        <action
+            android:id="@+id/action_teacherListFragment_to_addTeacherFragment"
+            app:destination="@id/addTeacherFragment" />
+        <action
+            android:id="@+id/action_teacherListFragment_to_updateTeacherFragment"
+            app:destination="@id/updateTeacherFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/teacherDetailFragment"
+        android:name="com.littlenest.nursery.ui.teacher.TeacherDetailFragment"
+        android:label="Teacher Details"
+        tools:layout="@layout/fragment_teacher_detail">
+        <argument
+            android:name="teacher"
+            app:argType="com.littlenest.nursery.ui.teacher.Teacher" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTeacherFragment"
+        android:name="com.littlenest.nursery.ui.teacher.AddTeacherFragment"
+        android:label="Add Teacher"
+        tools:layout="@layout/fragment_teacher_add">
+        <argument
+            android:name="teacher"
+            app:argType="com.littlenest.nursery.ui.teacher.Teacher"
+            app:nullable="true" />
+    </fragment>
+
+    <!--use same fragment for add and update-->
+    <fragment
+        android:id="@+id/updateTeacherFragment"
+        android:name="com.littlenest.nursery.ui.teacher.AddTeacherFragment"
+        android:label="Update Teacher"
+        tools:layout="@layout/fragment_teacher_add">
+        <argument
+            android:name="teacher"
+            app:argType="com.littlenest.nursery.ui.teacher.Teacher"
+            app:nullable="false" />
+    </fragment>
+
+    <!--TEACHER -END -->
+
+
+
+    <!--CURRICULUM -START -->
+    <fragment
+        android:id="@+id/curriculumListFragment"
+        android:name="com.littlenest.nursery.ui.curriculum.CurriculumListFragment"
+        android:label="Curriculum List"
+        tools:layout="@layout/fragment_curriculum_list">
+
+        <action
+            android:id="@+id/action_curriculumListFragment_to_addCurriculumFragment"
+            app:destination="@id/addCurriculumFragment" />
+        <action
+            android:id="@+id/action_curriculumListFragment_to_updateCurriculumFragment"
+            app:destination="@id/updateCurriculumFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCurriculumFragment"
+        android:name="com.littlenest.nursery.ui.curriculum.AddCurriculumFragment"
+        android:label="Add Curriculum"
+        tools:layout="@layout/fragment_curriculum_add">
+        <!-- Optional: Navigate back to list -->
+        <action
+            android:id="@+id/action_addCurriculumFragment_to_curriculumListFragment"
+            app:popUpTo="@id/curriculumListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateCurriculumFragment"
+        android:name="com.littlenest.nursery.ui.curriculum.UpdateCurriculumFragment"
+        android:label="Update Curriculum"
+        tools:layout="@layout/fragment_curriculum_add">
+        <argument
+            android:name="curriculum"
+            app:argType="com.littlenest.nursery.ui.curriculum.CurriculumResponse"
+            app:nullable="false"/>
+    </fragment>
+    <!--CURRICULUM -END -->
+
+
+
+    <!--EVENT -START -->
+    <!-- use same family fragment and did some changes for admin -->
+    <fragment
+        android:id="@+id/nav_family_events"
+        android:name="com.littlenest.nursery.ui.event.EventFragment"
+        android:label="Events"
+        tools:layout="@layout/fragment_family_event">
+        <action
+            android:id="@+id/action_navFamilyEvents_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_navFamilyEvents_to_eventAddFragment"
+            app:destination="@id/eventAddFragment" />
+        <action
+            android:id="@+id/action_navFamilyEvents_to_updateEventFragment"
+            app:destination="@id/updateEventFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="com.littlenest.nursery.ui.event.EventDetailFragment"
+        android:label="Event Details"
+        tools:layout="@layout/fragment_family_event_detail">
+        <argument
+            android:name="event"
+            app:argType="com.littlenest.nursery.ui.event.Event"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventAddFragment"
+        android:name="com.littlenest.nursery.ui.event.AddEventFragment"
+        android:label="Add Event"
+        tools:layout="@layout/fragment_event_add">
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateEventFragment"
+        android:name="com.littlenest.nursery.ui.event.UpdateEventFragment"
+        android:label="Update Event"
+        tools:layout="@layout/fragment_event_add">
+        <argument
+            android:name="event"
+            app:argType="com.littlenest.nursery.ui.event.Event"
+            app:nullable="false" />
+    </fragment>
+    <!--EVENT -END -->
+
+
+
+<!-- ATTENDANCE -START-->
+    <fragment
+        android:id="@+id/attendanceGroupListFragment"
+        android:label="Attendace - Group List"
+        android:name="com.littlenest.nursery.ui.attendance_summary.AttendanceGroupListFragment">
+
+        <action
+            android:id="@+id/actionAttendanceGroupListFragmentToAttendanceSummaryFragment"
+            app:destination="@id/attendanceSummaryFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/attendanceSummaryFragment"
+        android:label="Attendance Summary"
+        android:name="com.littlenest.nursery.ui.attendance_summary.AttendanceSummaryFragment">
+
+        <argument
+            android:name="groupId"
+            app:argType="integer"/>
+
+        <argument
+            android:name="groupName"
+            app:argType="string"/>
+    </fragment>
+
+    <!--  ATTENDANCE - END -->
+
+    <fragment
+        android:id="@+id/nav_manager_reports"
+        android:name="com.littlenest.nursery.ui.home.HomeFragment"
+        android:label="Reports"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.littlenest.nursery.ui.settings.SettingsFragment"
+        android:label="Settings" >
+        <action
+            android:id="@+id/action_settings_to_updateNursery"
+            app:destination="@id/updateNurseryFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/updateNurseryFragment"
+        android:name="com.littlenest.nursery.ui.settings.UpdateNurseryFragment"
+        android:label="Update Nursery" />
+
+
+
+
+    <!--CURRICULUM -START -->
+    <fragment
+        android:id="@+id/StandardListFragment"
+        android:name="com.littlenest.nursery.ui.curriculumNew.StandardListFragment"
+        android:label="Standard List"
+        tools:layout="@layout/fragment_standard_list">
+
+        <action
+            android:id="@+id/action_standardListFragment_to_curriculumListFragment"
+            app:destination="@id/CurriculumNewListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CurriculumNewListFragment"
+        android:name="com.littlenest.nursery.ui.curriculumNew.CurriculumNewListFragment"
+        android:label="Curriculum List"
+        tools:layout="@layout/fragment_curriculumnew_list">
+        <argument
+            android:name="standardId"
+            app:argType="integer" />
+        <argument
+            android:name="standardName"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_curriculumListFragment_to_SubTopicListFragment"
+            app:destination="@id/SubTopicListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SubTopicListFragment"
+        android:name="com.littlenest.nursery.ui.curriculumNew.SubTopicListFragment"
+        android:label="SubTopics"
+        tools:layout="@layout/fragment_subtopic_list">
+
+        <argument
+            android:name="curriculumId"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_SubTopicListFragment_to_ActivityListFragment"
+            app:destination="@id/ActivityListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ActivityListFragment"
+        android:name="com.littlenest.nursery.ui.curriculumNew.ActivityListFragment"
+        android:label="Activities"
+        tools:layout="@layout/fragment_activity_list">
+
+        <argument
+            android:name="subTopicId"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>

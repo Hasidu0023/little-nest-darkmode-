@@ -1,0 +1,63 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+<!--        <item-->
+<!--            android:id="@+id/nav_manager_dashboard"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="Admin Dashboard" />-->
+
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Messages" />
+
+        <item
+            android:id="@+id/groupListFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Groups/Students" />
+
+<!--        <item-->
+<!--            android:id="@+id/studentFragment"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="Students" />-->
+
+        <item
+            android:id="@+id/teacherListFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Educators" />
+
+<!--        <item-->
+<!--            android:id="@+id/curriculumListFragment"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="Curriculum" />-->
+
+        <item
+            android:id="@+id/CurriculumNewListFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="CurriculumNew" />
+
+        <item
+            android:id="@+id/nav_family_events"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Events" />
+
+        <item
+            android:id="@+id/attendanceGroupListFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Attendance" />
+
+<!--        <item-->
+<!--            android:id="@+id/nav_manager_reports"-->
+<!--            android:icon="@drawable/ic_menu_gallery"-->
+<!--            android:title="Reports" />-->
+
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Nursery Profile" />
+    </group>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="Logout" />
+</menu>
