@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <!-- Production / cloud server -->
-    <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">
-            ec2-13-239-60-230.ap-southeast-2.compute.amazonaws.com
-        </domain>
 
-        <!-- Emulator localhost -->
-        <domain includeSubdomains="false">
-            10.0.2.2
-        </domain>
-    </domain-config>
+    <!-- Allow HTTP traffic for development -->
+    <base-config cleartextTrafficPermitted="true" />
+
 </network-security-config>
+
+<!--<network-security-config>-->
+<!--    &lt;!&ndash; Production / cloud server &ndash;&gt;-->
+<!--    <domain-config cleartextTrafficPermitted="true">-->
+<!--        <domain includeSubdomains="true">-->
+<!--            ec2-13-239-60-230.ap-southeast-2.compute.amazonaws.com-->
+<!--        </domain>-->
+
+<!--        &lt;!&ndash; Emulator localhost &ndash;&gt;-->
+<!--        <domain includeSubdomains="false">-->
+<!--            10.0.2.2-->
+<!--        </domain>-->
+<!--    </domain-config>-->
+<!--</network-security-config>-->
