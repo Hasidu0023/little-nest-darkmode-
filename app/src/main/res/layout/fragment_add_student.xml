@@ -40,6 +40,8 @@
                 android:layout_weight="1"
                 android:hint="Student Full Name"
                 android:textSize="20sp"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
                 android:textStyle="bold"
                 android:background="@null"
                 android:inputType="textPersonName|textCapWords" />
@@ -53,7 +55,8 @@
             android:text="ACCOUNT DETAILS"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:textColor="#555555"
+            android:textColor="#000000"
+            android:textColorHint="#808080"
             android:paddingBottom="8dp" />
 
         <!-- Username -->
@@ -91,7 +94,8 @@
             android:text="PERSONAL DETAILS"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:textColor="#555555"
+            android:textColor="#000000"
+            android:textColorHint="#808080"
             android:paddingBottom="8dp"
             android:paddingTop="20dp"/>
 
@@ -105,6 +109,8 @@
             <Spinner
                 android:id="@+id/spinnerGroup"
                 style="@style/ProfileItemValue"
+                android:textColor="#808080"
+                android:textColorHint="#808080"
                 android:layout_gravity="end"
                 android:gravity="end" />
         </LinearLayout>
@@ -120,6 +126,8 @@
                 style="@style/ProfileItemValue"
                 android:hint="Enter nickname"
                 android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
                 android:layout_gravity="end"
                 android:gravity="end"/>
         </LinearLayout>
@@ -148,6 +156,8 @@
             <EditText
                 android:id="@+id/etDateOfBirth"
                 style="@style/ProfileItemValue"
+                android:textColor="#000000"
+                android:textColorHint="#808080"
                 android:hint="dd-MM-yyyy"
                 android:focusable="false"
                 android:clickable="true" />
@@ -268,6 +278,8 @@
             android:layout_height="wrap_content"
             android:text="Comment"
             android:textStyle="bold"
+            android:textColor="#000000"
+            android:textColorHint="#808080"
             android:layout_marginTop="16dp" />
         <EditText
             android:id="@+id/etComment"
@@ -276,6 +288,8 @@
             android:hint="Enter comment or special instructions"
             android:inputType="textMultiLine"
             android:minLines="3"
+            android:textColor="#000000"
+            android:textColorHint="#808080"
             android:gravity="top|start"
             android:paddingVertical="8dp"
             android:background="@drawable/rounded_edittext_background"
