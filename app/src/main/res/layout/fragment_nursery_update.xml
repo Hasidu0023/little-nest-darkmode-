@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
+            android:textColor="@android:color/darker_gray"
             android:textStyle="bold"
             android:layout_marginTop="16dp" />
         <EditText
@@ -59,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
+            android:textColor="@android:color/darker_gray"
             android:minLines="3"
             android:gravity="top|start"
             android:paddingVertical="8dp"

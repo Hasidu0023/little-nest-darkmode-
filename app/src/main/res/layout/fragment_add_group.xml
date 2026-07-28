@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Group Description"
+        android:textColor="@android:color/darker_gray"
         android:textStyle="bold"
         android:layout_marginTop="16dp" />
     <EditText
@@ -34,6 +35,7 @@
         android:gravity="top|start"
         android:paddingVertical="8dp"
         android:paddingLeft="10dp"
+        android:textColor="@android:color/black"
         android:background="@drawable/rounded_edittext_background"
         android:layout_marginBottom="24dp" />
 
