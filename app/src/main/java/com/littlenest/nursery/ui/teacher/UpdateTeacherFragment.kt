@@ -246,12 +246,15 @@
 
         private fun setupGenderSpinner() {
             val genderOptions = arrayOf("Select Gender", "Male", "Female", "Other")
+
             val adapter = ArrayAdapter(
                 requireContext(),
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_item,
                 genderOptions
             )
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            adapter.setDropDownViewResource(R.layout.spinner_item)
+
             binding.spinnerGender.adapter = adapter
         }
 

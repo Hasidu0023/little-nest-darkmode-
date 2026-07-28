@@ -51,13 +51,21 @@ class UpdateNurseryFragment : BaseFragment(R.layout.fragment_nursery_update) {
     }
 
     private fun setupLanguageSpinner() {
-        val languages = listOf("English", "Sinhala", "Tamil")
+        val languages = listOf(
+            "English",
+            "Sinhala",
+            "Tamil"
+        )
+
         val spinnerAdapter = ArrayAdapter(
             requireContext(),
-            android.R.layout.simple_spinner_item,
+            R.layout.spinner_item,
             languages
         )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        spinnerAdapter.setDropDownViewResource(
+            R.layout.spinner_dropdown_item
+        )
 
         binding.spLanguage.adapter = spinnerAdapter
     }

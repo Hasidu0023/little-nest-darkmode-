@@ -44,16 +44,24 @@ class AddStudentFragment : BaseFragment(R.layout.fragment_add_student) {
         token = getToken() ?: ""
         apiKey = getApiKey().ifEmpty { "your-very-secret-key" }
 
-        // Initialize and fetch groups
+        // Initialize GroupViewModel
         groupViewModel = ViewModelProvider(this)[GroupViewModel::class.java]
-        groupViewModel.fetchGroups(token, apiKey)
-        observeGroupList()
 
+// Check token
         if (token.isEmpty()) {
-            Toast.makeText(requireContext(), "Token missing. Please login again.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Token missing. Please login again.",
+                Toast.LENGTH_SHORT
+            ).show()
+
             handleLogout()
             return
         }
+
+// Initialize and fetch groups
+        groupViewModel.fetchGroups(token, apiKey)
+        observeGroupList()
 
         // Setup gender spinner
         val genderOptions = arrayOf("Select Gender", "Male", "Female", "Other")
@@ -301,7 +309,11 @@ class AddStudentFragment : BaseFragment(R.layout.fragment_add_student) {
     private fun observeGroupList() {
         groupViewModel.groups.observe(viewLifecycleOwner) { groups ->
             if (groups.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "No groups available", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "No groups available",
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@observe
             }
 
@@ -309,43 +321,63 @@ class AddStudentFragment : BaseFragment(R.layout.fragment_add_student) {
 
             val adapter = ArrayAdapter(
                 requireContext(),
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_item,
                 groupList.map { it.name }
             )
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            adapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item
+            )
+
             binding.spinnerGroup.adapter = adapter
 
-            binding.spinnerGroup.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    selectedGroupId = groupList[position].id
+            binding.spinnerGroup.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) {
+                        selectedGroupId = groupList[position].id
+                    }
+
+                    override fun onNothingSelected(
+                        parent: AdapterView<*>?
+                    ) {
+                        selectedGroupId = null
+                    }
                 }
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    selectedGroupId = null
-                }
-            }
 
             // ✅ Prefill student only after groups have loaded
-            val student = try { args.student } catch (e: Exception) { null }
-            if (student != null) {
-                binding.btnSubmit.text = "Update Student"
-                prefillStudentData(student, arrayOf("Select Gender", "Male", "Female", "Other"))
-            }
+            val genderOptions = arrayOf(
+                "Select Gender",
+                "Male",
+                "Female",
+                "Other"
+            )
+
+            val genderAdapter = ArrayAdapter(
+                requireContext(),
+                R.layout.spinner_item,
+                genderOptions
+            )
+
+            genderAdapter.setDropDownViewResource(
+                R.layout.spinner_dropdown_item
+            )
+
+            binding.spinnerGender.adapter = genderAdapter
         }
 
         groupViewModel.error.observe(viewLifecycleOwner) { error ->
             error?.let {
-                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    it,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-}
+    }}

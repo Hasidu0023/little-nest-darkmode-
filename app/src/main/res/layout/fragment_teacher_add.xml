@@ -28,6 +28,7 @@
                 android:scaleType="centerCrop"
                 android:background="@drawable/circle_background" />
 
+
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
@@ -70,12 +71,18 @@
         <View style="@style/DividerLine" />
 
         <!-- Gender -->
+        <!-- Gender -->
         <LinearLayout style="@style/ProfileItemContainer">
-            <TextView style="@style/ProfileItemLabel" android:text="Gender" />
+            <TextView
+                style="@style/ProfileItemLabel"
+                android:text="Gender" />
+
             <Spinner
                 android:id="@+id/spinnerGender"
-                style="@style/ProfileItemValue" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
         <View style="@style/DividerLine" />
 
         <!-- Group -->

@@ -53,8 +53,15 @@ class AddTeacherFragment : BaseFragment(R.layout.fragment_teacher_add) {
 
     private fun setupGenderSpinner() {
         val genderOptions = arrayOf("Select Gender", "Male", "Female", "Other")
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, genderOptions)
+
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.spinner_item,
+            genderOptions
+        )
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
         binding.spinnerGender.adapter = adapter
     }
 
