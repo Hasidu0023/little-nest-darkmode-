@@ -7,7 +7,7 @@
     android:paddingHorizontal="16dp"
     android:paddingVertical="20dp"
     android:background="@android:color/white"
-    tools:context=".ui.family.UpdateStudentFragment">
+    tools:context=".ui.student.UpdateStudentFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,8 +22,6 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="24dp">
 
-            <!-- Profile Picture -->
-            <!-- Note: You need to define @drawable/avatar_placeholder or use a standard icon -->
             <ImageView
                 android:id="@+id/imageProfile"
                 android:layout_width="64dp"
@@ -41,44 +39,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-                <!-- Full Name Display (can be an EditText if name is editable) -->
+
+
                 <EditText
                     android:id="@+id/editFullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Student Full Name"
+                    android:textColor="#444444"
+                    android:textColorHint="#888888"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:background="@null"
                     android:inputType="textPersonName|textCapWords" />
 
-                <!-- Upload Button below the name -->
-                <Button
-                    android:id="@+id/btnUploadPicture"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="0dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
-                    android:paddingStart="3dp"
-                    android:paddingEnd="3dp"
-                    android:text="Change Picture"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:backgroundTint="@color/kindiedays_blue_dark"
-                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Dynamic Field Layouts (Label and Value side-by-side) -->
-
         <!-- Nickname -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Nickname" />
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Nickname" />
             <EditText
                 android:id="@+id/editNickname"
                 style="@style/ProfileItemValue"
@@ -87,12 +67,9 @@
         </LinearLayout>
         <View style="@style/DividerLine" />
 
-        <!-- Date of Birth (Non-editable for selection) -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Date of Birth" />
+        <!-- Date of Birth -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Date of Birth" />
             <EditText
                 android:id="@+id/editDateOfBirth"
                 style="@style/ProfileItemValue"
@@ -102,7 +79,7 @@
         </LinearLayout>
         <View style="@style/DividerLine" />
 
-        <!-- Photo Consent (Checkbox) -->
+        <!-- Photo Consent -->
         <LinearLayout
             style="@style/ProfileItemContainer"
             android:minHeight="48dp"
@@ -118,16 +95,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
                 android:minWidth="0dp"
-                android:padding="0dp"/>
+                android:padding="0dp" />
         </LinearLayout>
         <View style="@style/DividerLine" />
 
         <!-- Native Language -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Native Language" />
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Native Language" />
             <EditText
                 android:id="@+id/editNativeLanguage"
                 style="@style/ProfileItemValue"
@@ -136,12 +110,9 @@
         </LinearLayout>
         <View style="@style/DividerLine" />
 
-        <!-- Dropoff Time (Non-editable for selection) -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Dropoff Time" />
+        <!-- Dropoff Time -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Dropoff Time" />
             <EditText
                 android:id="@+id/editDropOffTime"
                 style="@style/ProfileItemValue"
@@ -151,12 +122,9 @@
         </LinearLayout>
         <View style="@style/DividerLine" />
 
-        <!-- Pickup Time (Non-editable for selection) -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Pickup Time" />
+        <!-- Pickup Time -->
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Pickup Time" />
             <EditText
                 android:id="@+id/editPickupTime"
                 style="@style/ProfileItemValue"
@@ -167,11 +135,8 @@
         <View style="@style/DividerLine" />
 
         <!-- Address -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Address" />
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Address" />
             <EditText
                 android:id="@+id/editAddress"
                 style="@style/ProfileItemValue"
@@ -181,11 +146,8 @@
         <View style="@style/DividerLine" />
 
         <!-- City -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="City" />
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="City" />
             <EditText
                 android:id="@+id/editCity"
                 style="@style/ProfileItemValue"
@@ -195,11 +157,8 @@
         <View style="@style/DividerLine" />
 
         <!-- Allergies -->
-        <LinearLayout
-            style="@style/ProfileItemContainer">
-            <TextView
-                style="@style/ProfileItemLabel"
-                android:text="Allergies" />
+        <LinearLayout style="@style/ProfileItemContainer">
+            <TextView style="@style/ProfileItemLabel" android:text="Allergies" />
             <EditText
                 android:id="@+id/editAllergies"
                 style="@style/ProfileItemValue"
@@ -208,19 +167,22 @@
         </LinearLayout>
         <View style="@style/DividerLine" />
 
-        <!-- Comment (Uses MultiLine Input) -->
-        <!-- Note: This is an exception, keeping it full-width for multi-line input -->
+        <!-- Comment -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Comment"
             android:textStyle="bold"
+            android:textColor="#444444"
             android:layout_marginTop="16dp" />
+
         <EditText
             android:id="@+id/editComment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter comment or special instructions"
+            android:textColor="#444444"
+            android:textColorHint="#888888"
             android:inputType="textMultiLine"
             android:minLines="3"
             android:gravity="top|start"

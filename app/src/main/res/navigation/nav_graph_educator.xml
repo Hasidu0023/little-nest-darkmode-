@@ -11,7 +11,6 @@
         android:label="Dashboard"
         tools:layout="@layout/fragment_home" />
 
-
     <fragment
         android:id="@+id/nav_family_journal"
         android:name="com.littlenest.nursery.ui.journal.JournalFragment"
@@ -22,7 +21,6 @@
             android:id="@+id/action_navFamilyJournal_to_JournalAddFragment"
             app:destination="@id/journalAddFragment" />
 
-        <!-- New action to edit a post -->
         <action
             android:id="@+id/action_navFamilyJournal_to_editJournalFragment"
             app:destination="@id/editJournalFragment">
@@ -34,11 +32,9 @@
         <action
             android:id="@+id/action_global_slideshow"
             app:destination="@id/slideshowFragment">
-
             <argument
                 android:name="images"
                 app:argType="com.littlenest.nursery.model.PostImage[]" />
-
             <argument
                 android:name="position"
                 app:argType="integer" />
@@ -49,41 +45,30 @@
         android:id="@+id/slideshowFragment"
         android:name="com.littlenest.nursery.ui.family.SlideshowFragment"
         android:label="Slideshow">
-
         <argument
             android:name="images"
             app:argType="com.littlenest.nursery.model.PostImage[]" />
-
         <argument
             android:name="position"
             app:argType="integer" />
     </fragment>
 
-<!--    <fragment-->
-<!--        android:id="@+id/imagePreviewFragment"-->
-<!--        android:name="com.littlenest.nursery.ui.journal.ImagePreviewFragment"-->
-<!--        android:label="Image Preview" />-->
-
     <fragment
         android:id="@+id/journalAddFragment"
         android:name="com.littlenest.nursery.ui.journal.AddJournalFragment"
         android:label="Add Journal"
-        tools:layout="@layout/fragment_journal_add">
-    </fragment>
+        tools:layout="@layout/fragment_journal_add" />
 
     <fragment
         android:id="@+id/editJournalFragment"
         android:name="com.littlenest.nursery.ui.journal.EditJournalFragment"
         android:label="Edit Journal"
-        tools:layout="@layout/fragment_journal_add" > <!-- you can reuse the same layout -->
+        tools:layout="@layout/fragment_journal_add" >
         <argument
             android:name="postId"
             app:argType="integer" />
     </fragment>
 
-
-    <!--MESSAGE -START -->
-    <!--chat list-->
     <fragment
         android:id="@+id/nav_messages"
         android:name="com.littlenest.nursery.ui.chat.ChatListFragment"
@@ -100,7 +85,6 @@
             app:destination="@id/groupChatFragment" />
     </fragment>
 
-    <!--Private Chat Interface-->
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.littlenest.nursery.ui.chat.ChatFragment"
@@ -110,19 +94,16 @@
             app:argType="com.littlenest.nursery.ui.chat.ChatListItem" />
     </fragment>
 
-    <!--send to : user list interface-->
     <fragment
         android:id="@+id/userListFragment"
         android:name="com.littlenest.nursery.ui.chat.UserListFragment"
         android:label="Send to"
         tools:layout="@layout/fragment_user_list">
-
         <action
             android:id="@+id/action_userList_to_chatFragment"
             app:destination="@id/chatFragment" />
     </fragment>
 
-    <!--group chat Interface (use the same private chat layout-->
     <fragment
         android:id="@+id/groupChatFragment"
         android:name="com.littlenest.nursery.ui.chat.GroupChatFragment"
@@ -135,8 +116,6 @@
             android:name="groupName"
             app:argType="string" />
     </fragment>
-    <!--MESSAGE -END -->
-
 
     <fragment
         android:id="@+id/nav_album"
@@ -144,11 +123,6 @@
         android:label="Students"
         tools:layout="@layout/fragment_home" />
 
-
-
-
-    <!--EVENT -START -->
-    <!-- use same family fragment and did some changes for admin -->
     <fragment
         android:id="@+id/nav_family_events"
         android:name="com.littlenest.nursery.ui.event.EventFragment"
@@ -180,8 +154,7 @@
         android:id="@+id/eventAddFragment"
         android:name="com.littlenest.nursery.ui.event.AddEventFragment"
         android:label="Add Event"
-        tools:layout="@layout/fragment_event_add">
-    </fragment>
+        tools:layout="@layout/fragment_event_add" />
 
     <fragment
         android:id="@+id/updateEventFragment"
@@ -193,15 +166,11 @@
             app:argType="com.littlenest.nursery.ui.event.Event"
             app:nullable="false" />
     </fragment>
-    <!--EVENT -END -->
 
-
-    <!-- ATTENDANCE -START-->
     <fragment
         android:id="@+id/attendanceGroupListFragment"
         android:label="Attendace - Group List"
         android:name="com.littlenest.nursery.ui.attendance_summary.AttendanceGroupListFragment">
-
         <action
             android:id="@+id/actionAttendanceGroupListFragmentToAttendanceSummaryFragment"
             app:destination="@id/attendanceSummaryFragment"/>
@@ -211,29 +180,19 @@
         android:id="@+id/attendanceSummaryFragment"
         android:label="Attendance Summary"
         android:name="com.littlenest.nursery.ui.attendance_summary.AttendanceSummaryFragment">
-
         <argument
             android:name="groupId"
             app:argType="integer"/>
-
         <argument
             android:name="groupName"
             app:argType="string"/>
     </fragment>
 
-    <!--  ATTENDANCE - END -->
-
-
-
-
-
-    <!--STUDENT -START -->
     <fragment
         android:id="@+id/studentFragment"
         android:name="com.littlenest.nursery.ui.student.StudentsFragment"
         android:label="Students"
         tools:layout="@layout/fragment_students">
-
         <action
             android:id="@+id/action_studentsFragment_to_studentDetailFragment"
             app:destination="@id/studentDetailFragment" />
@@ -260,44 +219,34 @@
         android:name="com.littlenest.nursery.ui.student.AddStudentFragment"
         android:label="Add Student"
         tools:layout="@layout/fragment_add_student">
-
         <argument
             android:name="student"
             app:argType="com.littlenest.nursery.ui.student.Student"
             app:nullable="true" />
     </fragment>
 
-    <!--use same fragment for add and update-->
     <fragment
         android:id="@+id/updateStudentFragment"
-        android:name="com.littlenest.nursery.ui.student.AddStudentFragment"
+        android:name="com.littlenest.nursery.ui.student.UpdateStudentFragment"
         android:label="Update Student"
-        tools:layout="@layout/fragment_add_student">
+        tools:layout="@layout/fragment_student_update">
         <argument
             android:name="student"
             app:argType="com.littlenest.nursery.ui.student.Student"
             app:nullable="false" />
     </fragment>
-    <!--STUDENT -END -->
 
-
-
-
-
-    <!--GROUP -START -->
     <fragment
         android:id="@+id/groupListFragment"
         android:name="com.littlenest.nursery.ui.group.GroupListFragment"
         android:label="Groups"
         tools:layout="@layout/fragment_group_list">
-
         <action
             android:id="@+id/action_groupListFragment_to_addGroupFragment"
             app:destination="@id/addGroupFragment" />
         <action
             android:id="@+id/action_groupListFragment_to_editGroupFragment"
             app:destination="@id/editGroupFragment" />
-
         <action
             android:id="@+id/action_groupListFragment_to_studentFragment"
             app:destination="@id/studentFragment" />
@@ -323,10 +272,7 @@
             android:name="groupDescription"
             app:argType="string" />
     </fragment>
-    <!--GROUP -END -->
 
-
-    <!--TEACHER PROFILE-->
     <fragment
         android:id="@+id/updateTeacherProfile"
         android:name="com.littlenest.nursery.ui.teacher.UpdateTeacherFragment"
@@ -337,8 +283,6 @@
             app:argType="com.littlenest.nursery.ui.teacher.Teacher"
             app:nullable="false" />
     </fragment>
-    <!-- TEACHER PROFILE - END    -->
-
 
     <fragment
         android:id="@+id/nav_educator_reports"
@@ -346,8 +290,6 @@
         android:label="Reports"
         tools:layout="@layout/fragment_home" />
 
-
-    <!--Settings/ Nursery Profile-->
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.littlenest.nursery.ui.settings.SettingsFragment"

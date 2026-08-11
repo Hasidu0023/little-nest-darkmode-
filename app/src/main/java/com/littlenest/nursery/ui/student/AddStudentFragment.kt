@@ -3,6 +3,7 @@ package com.littlenest.nursery.ui.student
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -196,6 +197,9 @@ class AddStudentFragment : BaseFragment(R.layout.fragment_add_student) {
             return null
         } else if (username.isEmpty() ) {
             Toast.makeText(requireContext(), "Please fill username field", Toast.LENGTH_SHORT).show()
+            return null
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            Toast.makeText(requireContext(), "Please enter a valid email address", Toast.LENGTH_SHORT).show()
             return null
         } else if(password.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill password field", Toast.LENGTH_SHORT).show()

@@ -89,10 +89,9 @@ class StudentsFragment : BaseFragment(R.layout.fragment_students) {
                 findNavController().navigate(action)
             },
             onEditClick = { student ->
-                val bundle = Bundle().apply {
-                    putParcelable("student", student)
-                }
-                findNavController().navigate(R.id.action_studentsFragment_to_updateStudentFragment, bundle)
+                val action = StudentsFragmentDirections
+                    .actionStudentsFragmentToUpdateStudentFragment(student)
+                findNavController().navigate(action)
             },
             onDeleteClick = { student ->
                 androidx.appcompat.app.AlertDialog.Builder(requireContext())

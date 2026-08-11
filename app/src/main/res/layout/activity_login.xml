@@ -39,7 +39,7 @@
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:textColor="#000000"
             android:textColorHint="#808080"
             android:inputType="textEmailAddress"

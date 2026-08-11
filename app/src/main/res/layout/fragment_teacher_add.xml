@@ -46,7 +46,7 @@
         <LinearLayout style="@style/ProfileItemContainer">
             <TextView
                 style="@style/ProfileItemLabel"
-                android:text="Username" />
+                android:text="Email" />
             <EditText
                 android:id="@+id/teacherUsername"
                 style="@style/ProfileItemValue"

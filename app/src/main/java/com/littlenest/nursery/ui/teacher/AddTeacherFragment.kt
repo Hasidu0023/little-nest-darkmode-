@@ -2,6 +2,7 @@ package com.littlenest.nursery.ui.teacher
 
 import android.app.AlertDialog
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -175,8 +176,21 @@ class AddTeacherFragment : BaseFragment(R.layout.fragment_teacher_add) {
 
     private fun updateTeacher(teacherId: Int) {
         val teacher = try { args.teacher } catch (e: Exception) { null } ?: return
+
+        val username = binding.teacherUsername.text.toString().trim()
+
+        if (username.isEmpty()) {
+            Toast.makeText(requireContext(), "Please enter email", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            Toast.makeText(requireContext(), "Please enter a valid email address", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val updateRequest = UpdateTeacherRequest(
-            username = binding.teacherUsername.text.toString(),
+            username = username,
             password = binding.teacherPassword.text.toString().ifBlank { null },
             gender = binding.spinnerGender.selectedItem.toString().lowercase(),
             name = binding.etName.text.toString().trim(),
@@ -199,6 +213,11 @@ class AddTeacherFragment : BaseFragment(R.layout.fragment_teacher_add) {
         if (name.isEmpty() || username.isEmpty() || password.isEmpty() || gender == "Select Gender") {
             //Log.d("updateteacher add", "addFragment")
             Toast.makeText(requireContext(), "Please fill all required fields", Toast.LENGTH_SHORT).show()
+            return null
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            Toast.makeText(requireContext(), "Please enter a valid email address", Toast.LENGTH_SHORT).show()
             return null
         }
 
