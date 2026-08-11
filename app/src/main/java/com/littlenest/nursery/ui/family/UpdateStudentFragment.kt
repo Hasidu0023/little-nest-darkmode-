@@ -42,24 +42,6 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
             }
         }
 
-
-//    private val pickImageLauncher =
-//        registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
-//            uri?.let {
-//                // Persist permission to read this URI
-//                requireContext().contentResolver.takePersistableUriPermission(
-//                    it,
-//                    Intent.FLAG_GRANT_READ_URI_PERMISSION
-//                )
-//
-//                selectedImageUri = it
-//                Glide.with(this)
-//                    .load(it)
-//                    .transform(CircleCrop())
-//                    .into(binding.imageProfile)
-//            }
-//        }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,6 +53,7 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        @Suppress("DEPRECATION")
         student = arguments?.getParcelable("student") ?: return
 
         populateFields(student)
@@ -90,8 +73,8 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
         binding.editComment.setText(extra.comment)
         binding.checkboxPhotoConsent.isChecked = extra.photoConsent == true
         binding.editDateOfBirth.setText(formatDateForDisplay(extra.dateOfBirth ?: "N/A"))
-        binding.editDropOffTime.setText(extra.dropOffTime?.substring(0, 5))
-        binding.editPickupTime.setText(extra.pickupTime?.substring(0, 5))
+        binding.editDropOffTime.setText(extra.dropOffTime?.take(5) ?: "")
+        binding.editPickupTime.setText(extra.pickupTime?.take(5) ?: "")
 
         val profileUrl =
             if (extra.profilePicture?.startsWith("http") == true) extra.profilePicture
@@ -107,13 +90,10 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
     }
 
     private fun setupListeners() {
-        // Pick image
-        binding.btnUploadPicture.setOnClickListener {
+        // Pick image via profile picture click
+        binding.imageProfile.setOnClickListener {
             pickImageLauncher.launch("image/*")
         }
-//        binding.btnUploadPicture.setOnClickListener {
-//            pickImageLauncher.launch(arrayOf("image/*"))
-//        }
 
         // Date picker
         binding.editDateOfBirth.setOnClickListener {
@@ -161,7 +141,7 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
         val timePicker = TimePickerDialog(
             requireContext(),
             { _, hourOfDay, minute ->
-                val formattedTime = String.format("%02d:%02d", hourOfDay, minute)
+                val formattedTime = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute)
                 (targetEditText as? android.widget.EditText)?.setText(formattedTime)
             },
             calendar.get(Calendar.HOUR_OF_DAY),
@@ -218,7 +198,6 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
         }
 
         // Update student object
-        // Create a new updated ExtraData using copy()
         val updatedExtra = student.extraData.copy(
             fullName = fullName,
             nickname = nickname,
@@ -232,21 +211,18 @@ class UpdateStudentFragment : BaseFragment(R.layout.fragment_student_update) {
             pickupTime = pickup,
             photoConsent = photoConsent
         )
-        // Create a new Student with updated extraData
         val updatedStudent = student.copy(extraData = updatedExtra)
-        Log.d("updatedStudent", "$updatedStudent")
 
-        // Send to ViewModel for API call
         val authToken = getToken()
         val apiKey = getApiKey()
-        val studentId = getProfileId()
+        val studentId = student.studentId
 
         viewModel.updateStudentWithImage(
             updatedStudent,
             selectedImageUri,
             "Bearer $authToken",
             apiKey,
-            requireContext(), //The context is required because inside the ViewModel, we convert the Uri (from gallery) to a File
+            requireContext(),
             studentId
         )
     }

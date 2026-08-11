@@ -13,19 +13,22 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import android.util.Log
+import android.util.Patterns
 import android.content.Context
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var usernameEditText: EditText
+    private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var loginButton: Button
+
+    private var isLoginInProgress = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        usernameEditText = findViewById(R.id.editTextUsername)
+        emailEditText = findViewById(R.id.editTextUsername)
         passwordEditText = findViewById(R.id.editTextPassword)
         loginButton = findViewById(R.id.buttonLogin)
 
@@ -35,8 +38,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-            val username = usernameEditText.text.toString().trim()
-            val password = passwordEditText.text.toString().trim()
+        if (isLoginInProgress) {
+            return
+        }
+
+        val email = emailEditText.text.toString().trim()
+        val password = passwordEditText.text.toString().trim()
 
 //        val username = "janani"
 //        val password = "janani"
@@ -53,15 +60,24 @@ class LoginActivity : AppCompatActivity() {
 //        val username = "teacher_jennifer_nur1"
 //        val password = "teacher_jennifer_nur1"
 
-        if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show()
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val request = LoginRequest(username, password)
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        isLoginInProgress = true
+
+        val request = LoginRequest(email, password)
 
         RetrofitClient.instance.loginUser(request).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                isLoginInProgress = false
+
                 if (response.isSuccessful && response.body() != null) {
                     val loginResponse = response.body()
                     val token = loginResponse?.token
@@ -100,6 +116,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                isLoginInProgress = false
                 Toast.makeText(this@LoginActivity, "Network error: ${t.localizedMessage}", Toast.LENGTH_SHORT).show()
             }
         })

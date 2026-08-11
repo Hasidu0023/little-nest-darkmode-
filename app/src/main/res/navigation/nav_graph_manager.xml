@@ -189,9 +189,9 @@
     <!--use same fragment for add and update-->
     <fragment
         android:id="@+id/updateStudentFragment"
-        android:name="com.littlenest.nursery.ui.student.AddStudentFragment"
+        android:name="com.littlenest.nursery.ui.student.UpdateStudentFragment"
         android:label="Update Student"
-        tools:layout="@layout/fragment_add_student">
+        tools:layout="@layout/fragment_student_update">
         <argument
             android:name="student"
             app:argType="com.littlenest.nursery.ui.student.Student"
